@@ -2,3 +2,15 @@ body {
     background-image: url("tree.jpg");
     background-size: cover;
 }
+
+h2 {
+    position: relative;
+    width: fit-content;
+    margin: auto;
+}
+
+  h1 {
+    position: absolute;
+    left : 150px;
+    top : 100px;
+    }
