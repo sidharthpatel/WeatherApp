@@ -9,8 +9,10 @@ h2 {
     margin: auto;
 }
 
-  h1 {
-    position: absolute;
-    left : 150px;
-    top : 100px;
-    }
+h1 {
+    position: relative;
+    width: fit-content;
+    margin: auto;
+    color: rgb(79, 192, 27);
+    text-align: center;
+}
