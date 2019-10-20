@@ -18,8 +18,9 @@
         <!--b3090c4d10124a92bc72bc826a815035-->
         <p>Click the button to get your coordinates.</p>
 
+        <div class="button">
         <button onclick="getLocation()"> Get Location </button>
-
+        </div>
         <p id="demo"></p>
 
         <script>
@@ -34,8 +35,6 @@
             }
 
             function showPosition(position) {
-                x.innerHTML = "Latitude: " + position.coords.latitude +
-                    "<br>Longitude: " + position.coords.longitude;
                 fetch(
                         `http://api.weatherbit.io/v2.0/current?key=b3090c4d10124a92bc72bc826a815035&lat=${position.coords.latitude}&lon=${position.coords.longitude}`
                     )
@@ -46,7 +45,10 @@
                         x.innerHTML += "<br>" + data.data[0][value] + "</br>";
                     
                     });*/
-                    x.innerHTML += "<br> " + data.data[0].app_temp;
+                    x.innerHTML = "<br> " + data.data[0].city_name + " " + data.data[0].state_code + " " + data.data[0].country_code;
+                    x.innerHTML += "<br> Temperature: " + data.data[0].app_temp + " Celcius" + "<br> Precipitation: " + data.data[0].precip;
+                    x.innerHTML += "<br> Sunrise: " + data.data[0].sunrise + " Sunset: " + data.data[0].sunset;
+                    x.innerHTML += "<br> Weather Description: " + data.data[0].weather.description;
                     });
             }
         </script>

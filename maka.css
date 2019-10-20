@@ -9,10 +9,18 @@ h2 {
     margin: auto;
 }
 
-h1 {
+h1 p {
     position: relative;
     width: fit-content;
     margin: auto;
     color: rgb(79, 192, 27);
     text-align: center;
 }
+
+.button {
+    position: relative !important;
+    margin: auto !important;
+    text-align: center !important;
+}
+
+ 
