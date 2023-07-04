@@ -9,24 +9,26 @@
 </head>
 <body>
     <div class="container">
+        <!-- Search Box div -->
         <div class="search-box">
             <i class="fa-solid fa-location-dot"></i>
             <input type="text" placeholder="Enter your location">
             <button class="fa-solid fa-magnifying-glass"></button>
         </div>
-
+        <!-- If search fails, .not-found div is set to block -->
         <div class="not-found">
             <img src="images/404.png">
             <p>Oops! Invalid location :|</p>
         </div>
-
+        <!-- Initially weather-box is hidden by setting scale and opacity to 0 -->
         <div class="weather-box">
             <img src="">
             <p class="temperature"></p>
             <p class="description"></p>
         </div>
-
+        <!-- Initially weather-details in hidden by setting scale and opacity to 0  -->
         <div class="weather-details">
+            <!-- Humidity displayer -->
             <div class="humidity">
                 <i class="fa-solid fa-water"></i>
                 <div class="text">
@@ -34,7 +36,7 @@
                     <p>Humidity</p>
                 </div>
             </div>
-
+            <!-- Wind displayer -->
             <div class="wind">
                 <i class="fa-solid fa-wind"></i>
                 <div class="text">

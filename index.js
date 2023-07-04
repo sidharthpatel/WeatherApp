@@ -3,12 +3,19 @@ const search = document.querySelector(".search-box button");
 const weatherBox = document.querySelector(".weather-box");
 const weatherDetails = document.querySelector(".weather-details");
 const error404 = document.querySelector(".not-found");
-
+/**
+ * Sets an event listener to execute an API call to the openweathermap.org API
+ * and manipulate HTML styles such that display card is visible.
+ */
 search.addEventListener("click", () => {
   const APIKey = "b6c1a958037051afc3c0a59292f479ee";
+  // Retrieve city name from the search box
   const city = document.querySelector(".search-box input").value;
   if (city === "") return;
 
+  /**
+   * Make an API Call and set element styles accordingly.
+   */
   fetch(
     `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${APIKey}`
   )
@@ -34,6 +41,7 @@ search.addEventListener("click", () => {
       );
       const wind = document.querySelector(".weather-details .wind span");
 
+      // Display correct image based on the weather
       switch (json.weather[0].main) {
         case "Clear":
           image.src = "images/clear.png";
@@ -54,14 +62,28 @@ search.addEventListener("click", () => {
           image.src = "";
       }
 
+      // Fetch temperature from the API response and set it to HTML element
       temperature.innerHTML = `${parseInt(json.main.temp)} <span>°C</span>`;
+
+      // Fetch sky's description from the API response and set it to HTML element
       description.innerHTML = `${json.weather[0].description}`;
+
+      // Fetch humidity from the API response and set it to HTML element
       humidity.innerHTML = `${json.main.humidity}%`;
+
+      // Fetch wind speed from the API response and set it to the HTML element
       wind.innerHTML = `${parseInt(json.wind.speed)}Km/h`;
+
+      // Apply default display (block) since there is no style specified for weatherBox in styles.css
       weatherBox.style.display = "";
+
+      // Applies display: flex present in the styles.css
       weatherDetails.style.display = "";
+
+      // fadeIn custom animation sets the scale and opacity to 1
       weatherBox.classList.add("fadeIn");
       weatherDetails.classList.add("fadeIn");
+      
       container.style.height = "590px";
     });
 });
